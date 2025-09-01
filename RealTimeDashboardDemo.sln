@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitor.AvaloniaUI", "SystemMonitor.AvaloniaUI\SystemMonitor.AvaloniaUI.csproj", "{6A7463B0-2AFF-4553-9EA1-AA1DFFC57E90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitor.Shared", "SystemMonitor.Shared\SystemMonitor.Shared.csproj", "{11D56FBD-24A7-4B8A-A5DD-C4ECF876C0C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitor.GrpcService", "SystemMonitor.GrpcService\SystemMonitor.GrpcService.csproj", "{8AAEE0D4-DC3D-4955-8647-920B84DA33C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitor.WebApi", "SystemMonitor.WebApi\SystemMonitor.WebApi.csproj", "{2309F275-1BC3-438C-B5CA-394389C2FFA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitor.EventService", "SystemMonitor.EventService\SystemMonitor.EventService.csproj", "{85F6998B-F52D-44BB-B0BD-F9EF4EFED3A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitor.DataAccess", "SystemMonitor.DataAccess\SystemMonitor.DataAccess.csproj", "{C18A3F45-BCE9-43B3-9C50-59B998448402}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		mosquitto.conf = mosquitto.conf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{C0AFD801-1D93-4FB7-8BED-A420551D7043}"
+	ProjectSection(SolutionItems) = preProject
+		event-service-deployment.yaml = event-service-deployment.yaml
+		grpc-service-deployment.yaml = grpc-service-deployment.yaml
+		mongodb-deployment.yaml = mongodb-deployment.yaml
+		mosquitto-deployment.yaml = mosquitto-deployment.yaml
+		namespace.yaml = namespace.yaml
+		postgres-deployment.yaml = postgres-deployment.yaml
+		rabbitmq-deployment.yaml = rabbitmq-deployment.yaml
+		redis-deployment.yaml = redis-deployment.yaml
+		webapi-deployment.yaml = webapi-deployment.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		build-docker.sh = build-docker.sh
+		deploy-k8s.sh = deploy-k8s.sh
+		deploy-local.sh = deploy-local.sh
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A7463B0-2AFF-4553-9EA1-AA1DFFC57E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A7463B0-2AFF-4553-9EA1-AA1DFFC57E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A7463B0-2AFF-4553-9EA1-AA1DFFC57E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A7463B0-2AFF-4553-9EA1-AA1DFFC57E90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D56FBD-24A7-4B8A-A5DD-C4ECF876C0C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D56FBD-24A7-4B8A-A5DD-C4ECF876C0C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D56FBD-24A7-4B8A-A5DD-C4ECF876C0C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D56FBD-24A7-4B8A-A5DD-C4ECF876C0C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AAEE0D4-DC3D-4955-8647-920B84DA33C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AAEE0D4-DC3D-4955-8647-920B84DA33C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AAEE0D4-DC3D-4955-8647-920B84DA33C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AAEE0D4-DC3D-4955-8647-920B84DA33C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2309F275-1BC3-438C-B5CA-394389C2FFA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2309F275-1BC3-438C-B5CA-394389C2FFA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2309F275-1BC3-438C-B5CA-394389C2FFA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2309F275-1BC3-438C-B5CA-394389C2FFA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85F6998B-F52D-44BB-B0BD-F9EF4EFED3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85F6998B-F52D-44BB-B0BD-F9EF4EFED3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85F6998B-F52D-44BB-B0BD-F9EF4EFED3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85F6998B-F52D-44BB-B0BD-F9EF4EFED3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C18A3F45-BCE9-43B3-9C50-59B998448402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18A3F45-BCE9-43B3-9C50-59B998448402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18A3F45-BCE9-43B3-9C50-59B998448402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18A3F45-BCE9-43B3-9C50-59B998448402}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA61838F-4DC2-43BF-A57E-67B770E1B7DA}
+	EndGlobalSection
+EndGlobal

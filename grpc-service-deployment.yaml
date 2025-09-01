@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-service
+  namespace: system-monitor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: grpc-service
+  template:
+    metadata:
+      labels:
+        app: grpc-service
+    spec:
+      containers:
+      - name: grpc-service
+        image: systemmonitor/grpc-service:latest
+        ports:
+        - containerPort: 5001
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Production"
+        - name: ConnectionStrings__DefaultConnection
+          value: "Host=postgres-service;Database=SystemMonitor;Username=admin;Password=admin123"
+        - name: ConnectionStrings__Redis
+          value: "redis-service:6379,password=redis123"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-service
+  namespace: system-monitor
+spec:
+  selector:
+    app: grpc-service
+  ports:
+  - port: 5001
+    targetPort: 5001
+  type: ClusterIP
+
+---

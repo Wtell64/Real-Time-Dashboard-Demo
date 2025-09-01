@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-service
+  namespace: system-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: event-service
+  template:
+    metadata:
+      labels:
+        app: event-service
+    spec:
+      containers:
+      - name: event-service
+        image: systemmonitor/event-service:latest
+        env:
+        - name: ConnectionStrings__MongoDB
+          value: "mongodb://admin:admin123@mongodb-service:27017/SystemMonitor?authSource=admin"
+        - name: ConnectionStrings__RabbitMQ
+          value: "amqp://admin:admin123@rabbitmq-service:5672/"
+        - name: MqttSettings__Host
+          value: "mosquitto-service"
+        - name: MqttSettings__Port
+          value: "1883"
+
+---

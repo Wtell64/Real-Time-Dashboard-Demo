@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapi
+  namespace: system-monitor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webapi
+  template:
+    metadata:
+      labels:
+        app: webapi
+    spec:
+      containers:
+      - name: webapi
+        image: systemmonitor/webapi:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Production"
+        - name: ConnectionStrings__DefaultConnection
+          value: "Host=postgres-service;Database=SystemMonitor;Username=admin;Password=admin123"
+        - name: ConnectionStrings__Redis
+          value: "redis-service:6379,password=redis123"
+        - name: ConnectionStrings__MongoDB
+          value: "mongodb://admin:admin123@mongodb-service:27017/SystemMonitor?authSource=admin"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapi-service
+  namespace: system-monitor
+spec:
+  selector:
+    app: webapi
+  ports:
+  - port: 5000
+    targetPort: 5000
+  type: LoadBalancer
+
+---
