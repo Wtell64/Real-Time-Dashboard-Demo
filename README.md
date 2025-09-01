@@ -93,7 +93,7 @@
 kubectl get all -n system-monitor
 ```
 
-## 🎯 Features
+## Features
 
 - **Real-time Metrics**: CPU, Memory, Disk usage updated every 2 minutes
 - **Multiple Protocols**: REST, gRPC, WebSocket, MQTT all working together
@@ -102,7 +102,7 @@ kubectl get all -n system-monitor
 - **Cloud-Ready**: Full Docker and Kubernetes support
 - **High Performance**: Redis caching, connection pooling, async operations
 
-## 📊 Monitoring
+## Monitoring
 
 - **Web API**: http://localhost:5000/swagger
 - **gRPC**: http://localhost:5001 (HTTP/2)
